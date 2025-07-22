@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GaurCoder | Learn Coding Elegantly</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #00ffff;
+      --secondary: #add8e6;
+      --light: #ffffff;
+      --dark: #0f1a2b;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--light);
+      color: var(--dark);
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      animation: slideDown 0.6s ease-in-out;
+    }
+
+    header h1 {
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--light);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 80px 30px;
+      background: var(--light);
+    }
+
+    #bg3d {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .hero-text {
+      max-width: 600px;
+      z-index: 1;
+      animation: slideUp 0.8s ease-in-out;
+    }
+
+    .hero-text h2 {
+      font-size: 42px;
+      color: var(--primary);
+    }
+
+    .hero-text p {
+      font-size: 18px;
+      margin: 20px 0;
+    }
+
+    .hero-text button {
+      padding: 12px 25px;
+      font-size: 16px;
+      background: var(--primary);
+      color: var(--dark);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+
+    .hero-text button:hover {
+      background-color: var(--secondary);
+      transform: scale(1.05);
+    }
+
+    .hero img {
+      display: none;
+    }
+
+    .courses, .about {
+      padding: 60px 30px;
+      animation: fadeInUp 0.8s ease-in;
+    }
+
+    .courses {
+      background-color: var(--secondary);
+    }
+
+    .courses h2, .about h2, .contact h2 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .course-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .course {
+      background: var(--light);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .course:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .about p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .contact {
+      background: var(--dark);
+      color: var(--light);
+      padding: 60px 30px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .contact .section {
+      flex: 1;
+      min-width: 250px;
+      margin: 20px;
+    }
+
+    .contact h3 {
+      margin-bottom: 20px;
+    }
+
+    .quick-links a {
+      display: block;
+      color: var(--light);
+      text-decoration: none;
+      margin: 8px 0;
+      transition: color 0.3s;
+    }
+
+    .quick-links a:hover {
+      color: var(--primary);
+    }
+
+    .social-icons a {
+      font-size: 24px;
+      margin-right: 15px;
+      color: var(--light);
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.2);
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      .contact {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .social-icons a {
+        display: inline-block;
+        animation: pulse 1.5s infinite;
+      }
+
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+      }
+    }
+
+    .footer {
+      background-color: var(--dark);
+      color: var(--light);
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.152.2/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>GaurCoder</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#courses">Courses</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <canvas id="bg3d"></canvas>
+    <div class="hero-text">
+      <h2>Learn to Code with Elegance</h2>
+      <p>Join GaurCoder and master coding with interactive, beautifully designed courses taught by industry professionals.</p>
+      <button onclick="window.location.href='#courses'">Explore Courses</button>
+    </div>
+  </section>
+
+  <section class="courses" id="courses">
+    <h2>Our Top Courses</h2>
+    <div class="course-grid">
+      <div class="course">
+        <h3>C++ Masterclass</h3>
+        <p>Beginner to Advanced C++ course with projects.</p>
+      </div>
+      <div class="course">
+        <h3>Web Development</h3>
+        <p>Learn HTML, CSS, JavaScript and create responsive websites.</p>
+      </div>
+      <div class="course">
+        <h3>DSA Crash Course</h3>
+        <p>Master Data Structures & Algorithms for coding interviews.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>About GaurCoder</h2>
+    <p>
+      GaurCoder is a platform created with the goal of delivering high-quality, elegant coding education for everyone — from beginners to professionals. With beautifully designed content, interactive examples, and project-based learning, we aim to make your coding journey not just informative, but enjoyable.
+    </p>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="section">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+      </div>
+    </div>
+    <div class="section quick-links">
+      <h3>Quick Links</h3>
+      <a href="#">Home</a>
+      <a href="#courses">Courses</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="section">
+      <h3>Contact Info</h3>
+      <p>Email: support@gaurcoder.com</p>
+      <p>Phone: +91-9999999999</p>
+      <p>Location: India</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 GaurCoder. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 400, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById("bg3d"), alpha: true });
+    renderer.setSize(window.innerWidth, 400);
+    camera.position.z = 2;
+
+    const light = new THREE.HemisphereLight(0xffffff, 0x444444, 1);
+    scene.add(light);
+
+    const loader = new THREE.GLTFLoader();
+    loader.load("https://threejs.org/examples/models/gltf/Laptop.glb", function (gltf) {
+      const model = gltf.scene;
+      model.scale.set(0.5, 0.5, 0.5);
+      model.rotation.y = Math.PI;
+      scene.add(model);
+
+      function animate() {
+        requestAnimationFrame(animate);
+        model.rotation.y += 0.005;
+        renderer.render(scene, camera);
+      }
+      animate();
+    });
+
+    window.addEventListener("resize", () => {
+      camera.aspect = window.innerWidth / 400;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, 400);
+    });
+  </script>
+</body>
+
+</html>
